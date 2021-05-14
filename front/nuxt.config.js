@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'front',
+    title: 'NotionHub',
     htmlAttrs: {
       lang: 'en'
     },
@@ -34,6 +34,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
+    '@nuxtjs/axios'
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
