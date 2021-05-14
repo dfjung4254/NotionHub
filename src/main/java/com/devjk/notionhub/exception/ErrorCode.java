@@ -1,5 +1,8 @@
 package com.devjk.notionhub.exception;
 
+/**
+ * Back-end API 서버에서 에러 유형과 코드를 채번하여 관리.
+ */
 public enum ErrorCode {
 
   UNKNOWN_ERROR(500, "C001", "Unknown Error occured");
