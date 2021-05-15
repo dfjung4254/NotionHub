@@ -1,5 +1,6 @@
 package com.devjk.notionhub.api.logging;
 
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -9,26 +10,17 @@ import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
+@Slf4j
 @Component
 @Aspect
 public class LogAspect {
 
-  private final Logger logger = LoggerFactory.getLogger(LogAspect.class);
-
   @Around("execution(* com.devjk.notionhub.api.controller.*.*(..))")
   public Object logRequest(ProceedingJoinPoint joinPoint) throws Throwable {
-
     String method = joinPoint.getSignature().toShortString();
 
-    logger.info(method + " is Starting");
-    logger.info(Arrays.toString(joinPoint.getArgs()));
-
     Object obj = joinPoint.proceed();
-
-    logger.info(method + " is finished");
-
     return obj;
   }
-
 
 }
