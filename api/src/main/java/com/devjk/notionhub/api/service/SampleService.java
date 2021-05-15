@@ -1,7 +1,7 @@
-package com.devjk.notionhub.api.sample.service;
+package com.devjk.notionhub.api.service;
 
-import com.devjk.notionhub.api.sample.model.Sample;
-import com.devjk.notionhub.api.sample.repository.SampleRepository;
+import com.devjk.notionhub.api.model.Sample;
+import com.devjk.notionhub.api.repository.SampleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -19,8 +19,8 @@ public class SampleService {
     this.sampleRepository = sampleRepository;
   }
 
-  public void saveSample(Sample sample) {
-    sampleRepository.save(sample);
+  public ResponseEntity<Sample> saveSample(Sample sample) {
+    return ResponseEntity.of(Optional.of(sampleRepository.save(sample)));
   }
 
   public ResponseEntity<Sample> getSampleById(Long id) {

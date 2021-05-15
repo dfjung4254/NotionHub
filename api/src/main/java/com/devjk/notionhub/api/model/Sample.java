@@ -1,4 +1,4 @@
-package com.devjk.notionhub.api.sample.model;
+package com.devjk.notionhub.api.model;
 
 import lombok.Data;
 
