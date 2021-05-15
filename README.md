@@ -11,3 +11,7 @@
 2. Branch
 - `master` : 추후 release 용
 - `dev` : 개발용
+
+2-1. Branch 전략
+- `master` 에서 직접 커밋 금지
+- `dev` 또는 하위 브랜치에서 commit 후 `master` 로 merge.
