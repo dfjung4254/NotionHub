@@ -1,14 +1,18 @@
-package com.devjk.notionhub.api.sample.controller;
+package com.devjk.notionhub.api.controller;
 
-import com.devjk.notionhub.api.sample.model.Sample;
-import com.devjk.notionhub.api.sample.service.SampleService;
+import com.devjk.notionhub.api.annotation.NotionHubRestController;
+import com.devjk.notionhub.api.model.Sample;
+import com.devjk.notionhub.api.service.SampleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
-@RestController()
+@NotionHubRestController
 public class SampleController {
 
   private SampleService sampleService;
@@ -19,10 +23,8 @@ public class SampleController {
   }
 
   @PostMapping("/sample")
-  public void registerSample(@RequestBody Sample sample) {
-
-    sampleService.saveSample(sample);
-
+  public ResponseEntity<Sample> registerSample(@RequestBody Sample sample) {
+    return sampleService.saveSample(sample);
   }
 
   @GetMapping("/sample/{id}")
