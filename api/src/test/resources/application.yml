@@ -1,0 +1,8 @@
+cors:
+  mapping: /**
+  allowedOrigins: http://localhost:3000, http://localhost:8080
+logging:
+  level:
+    root: debug
+server:
+  port: 8080

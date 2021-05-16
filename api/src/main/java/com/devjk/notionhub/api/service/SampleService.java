@@ -12,7 +12,7 @@ import java.util.Optional;
 @Service
 public class SampleService {
 
-  private SampleRepository sampleRepository;
+  private final SampleRepository sampleRepository;
 
   @Autowired
   public SampleService(SampleRepository sampleRepository) {
