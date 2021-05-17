@@ -3,15 +3,12 @@ package com.devjk.notionhub.api.controller;
 import com.devjk.notionhub.api.model.Sample;
 import com.devjk.notionhub.api.repository.SampleRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
-import org.json.JSONObject;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
 
-import java.lang.reflect.Type;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -63,7 +60,7 @@ public class SampleControllerTest {
 
     Assertions.assertDoesNotThrow(() -> {
       // 1. check api
-      Sample result = new Gson().fromJson(body, Sample.class);
+      Sample result = new ObjectMapper().readValue(body, Sample.class);
       Assertions.assertNotNull(result);
       Assertions.assertEquals("TEST title1", result.getTitle());
       Assertions.assertEquals("CONTENT content1", result.getContent());
