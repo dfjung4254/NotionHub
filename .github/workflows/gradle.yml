@@ -26,3 +26,6 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
+    - name: JUnit Report Action
+      uses: mikepenz/action-junit-report@v2
+
