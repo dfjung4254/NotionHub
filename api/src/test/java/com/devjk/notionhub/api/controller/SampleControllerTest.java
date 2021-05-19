@@ -31,7 +31,7 @@ public class SampleControllerTest {
 
   @Test
   public void contextLoad() throws Exception {
-    Assertions.assertNotNull(sampleController);
+    Assertions.assertNull(sampleController);
   }
 
   @Test
@@ -53,8 +53,6 @@ public class SampleControllerTest {
             .version(HttpClient.Version.HTTP_2)
             .build()
             .send(request, HttpResponse.BodyHandlers.ofString());
-
-
 
     String body = response.body();
 
