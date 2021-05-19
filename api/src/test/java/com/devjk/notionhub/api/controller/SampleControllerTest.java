@@ -31,7 +31,7 @@ public class SampleControllerTest {
 
   @Test
   public void contextLoad() throws Exception {
-    Assertions.assertNull(sampleController);
+    Assertions.assertNotNull(sampleController);
   }
 
   @Test
