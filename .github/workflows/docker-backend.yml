@@ -1,0 +1,20 @@
+name: Merge PR and deploy Backend server
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [dev]
+      
+jobs:
+  merge-PR:
+    if: github.event.pull_request.merged == true    
+    runs-on: ubuntu-latest
+    env:      
+      working-directory: ./api
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Build the Docker image
+      working-directory: ${{ env.working-directory }}
+      run: docker build -t notionhub .
