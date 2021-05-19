@@ -14,10 +14,7 @@ on:
 
 jobs:
   build:
-    runs-on:
-      - ubuntu-latest
-      - macos-latest
-      - windows-latest
+    runs-on: ubuntu-latest
     env:
         working-directory: ./api
       
