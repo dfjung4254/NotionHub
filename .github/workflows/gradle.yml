@@ -29,7 +29,6 @@ jobs:
 
     - name: Cache Gradle packages
       uses: actions/cache@v2
-      working-directory: ${{ env.working-directory }}
       with:
         path: |
           ~/.gradle/caches
