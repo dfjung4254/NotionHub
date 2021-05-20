@@ -18,14 +18,17 @@ jobs:
     
     - name: Build the Docker image
       working-directory: ${{ env.working-directory }}
-      run: docker build -t dfjung4254/notionhub .
+      run: |
+        docker build -t dfjung4254/notionhub .
 
     - name: Docker login
-      run: docker login --username ${{ secrets.DOCKER_ID }} --password ${{ secrets.DOCKER_PW }}
+      run: |
+        docker login --username ${{ secrets.DOCKER_ID }} --password ${{ secrets.DOCKER_PW }}
 
     - name: Push the Docker image
       working-directory: ${{ env.working-directory }}
-      run: docker push dfjung4254/notionhub
+      run: |
+        docker push dfjung4254/notionhub
 
     - name: GCP Github Action
       uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
@@ -34,7 +37,8 @@ jobs:
         project_id: ${{ secrets.NOTIONHUB_GCE_DEV }}
 
     - name: Connect GCE and execute docker
-      run: gcloud compute ssh --zone "asia-northeast3-a" "api1" --project "notionhub" --command="sudo /notionhub/deploy.sh"
+      run: |
+        gcloud compute ssh --zone "asia-northeast3-a" "api1" --project "notionhub" --command="sudo /notionhub/deploy.sh"
 
 
 
