@@ -1,0 +1,40 @@
+name: Merge PR and deploy frontend server
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [dev]
+
+jobs:
+  merge-PR:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    env:
+      working-directory: ./front
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build the Docker image
+      working-directory: ${{ env.working-directory }}
+      run: |
+        docker build -t dfjung4254/notionhub-front .
+
+    - name: Docker login
+      run : |
+        docker login --username ${{ secrets.DOCKER_ID }} --password ${{ secrets.DOCKER_PW}}
+
+    - name: Push the Docker image
+      working-directory: ${{ env.working-directory }}
+      run: |
+        docker push dfjung4254/notionhub-front
+
+    - name: GCP Github Action
+      uses: google-github-actions/setup-gcloud@master
+      with:
+        service_account_key: ${{ secrets.NOTIONHUB_GCE_DEV_KEY_SA }}
+        project_id: ${{ secrets.NOTIONHUB_GCE_DEV }}
+
+    - name: Connect GCE and execute docker
+      run: |
+        gcloud compute ssh --zone "asia-northeast3-a" "api1" --project "notionhub" --command="sudo /notionhub-front/deploy.sh"
