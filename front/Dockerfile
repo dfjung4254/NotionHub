@@ -6,6 +6,7 @@ WORKDIR /front
 # update and install dependency
 RUN apk update && apk upgrade
 RUN apk add git
+RUN apk add bash
 
 # copy the app, note .dockerignore
 COPY . /front/
