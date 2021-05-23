@@ -4,7 +4,7 @@ spring:
       on-profile: local
 cors:
   mapping: /**
-  allowedOrigins: http://localhost:3000, http://localhost:8080, http://localhost
+  allowedOrigins: *
 logging:
   level:
     root: debug
@@ -17,7 +17,7 @@ spring:
       on-profile: dev
 cors:
   mapping: /**
-  allowedOrigins: http://34.64.211.184:80, http://localhost
+  allowedOrigins: *
 logging:
   level:
     root: debug
