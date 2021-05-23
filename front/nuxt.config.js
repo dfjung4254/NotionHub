@@ -42,7 +42,7 @@ export default {
   },
 
   env: {
-    baseUrl: process.env.BASE_URL || 'http://localhost:8080'
+    baseUrl: process.env.BASE_URL || 'http://34.64.211.184:8080' || 'http://localhost:8080'
   }
 
 }
