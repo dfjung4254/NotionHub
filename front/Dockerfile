@@ -20,5 +20,8 @@ ENV NUXT_HOST=0.0.0.0
 # set app port
 ENV NUXT_PORT=80
 
+# default : dev-api-server
+ENV BASE_URL=http://34.64.211.184:8080
+
 # start the app
 CMD [ "yarn", "start" ]
