@@ -60,6 +60,7 @@
 
 <script>
 export default {
+
   data() {
     const sample = {
       title: '',
@@ -71,20 +72,25 @@ export default {
       samples : []
     }
   },
+
+
   async fetch() {
     const result = await fetch(
-      'http://localhost:8080/samples'
+      process.env.baseUrl + '/samples'
     ).then(res => res.json());
     console.log(result);
     this.samples = result
   },
+
+
   methods: {
+
     async callSample(event) {
       event.preventDefault()
 
       try{
         const result = await fetch(
-          'http://localhost:8080/sample', {
+          process.env.baseUrl + '/sample', {
             method: 'POST',
             body: JSON.stringify(this.sample),
             headers: {
@@ -100,9 +106,13 @@ export default {
       }
 
     },
+
+
     navigate(path) {
       this.$router.push(path);
     }
+
+
   }
 }
 </script>
