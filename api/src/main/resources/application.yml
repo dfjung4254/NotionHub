@@ -3,8 +3,8 @@ spring:
     activate:
       on-profile: local
 cors:
-  mapping: /**
-  allowedOrigins: '*'
+  mapping: "/**"
+  allowedOrigins: "*"
 logging:
   level:
     root: debug
@@ -16,8 +16,8 @@ spring:
     activate:
       on-profile: dev
 cors:
-  mapping: /**
-  allowedOrigins: '*'
+  mapping: "/**"
+  allowedOrigins: "*"
 logging:
   level:
     root: debug
