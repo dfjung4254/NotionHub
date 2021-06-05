@@ -15,6 +15,8 @@
 - **Backend**
     - Framework : `Springboot 2.4` / `Java 11`
     - Test : `Junit5`
+- **Backend2**
+    - Framework : `Django` / `Python3`
 - **Infra**
     - Server : `GCE` + `Docker`
     - CI/CD : `Github Action`
