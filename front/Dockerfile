@@ -17,6 +17,7 @@ RUN yarn install
 RUN yarn build
 
 # set app serving to permissive / assigned
+ENV HOST 0.0.0.0
 # set app port
 EXPOSE 3000
 
