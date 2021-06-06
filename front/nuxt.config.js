@@ -42,7 +42,7 @@ export default {
   },
 
   env: {
-    baseUrl: 'http://34.64.211.184:8080'
+    baseUrl: 'http://54.180.89.13:8080/'
     // baseUrl: 'http://localhost:8080'
   }
 
