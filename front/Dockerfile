@@ -22,7 +22,7 @@ ENV HOST 0.0.0.0
 EXPOSE 3000
 
 # default : dev-api-server
-ENV BASE_URL=http://34.64.211.184:8080
+ENV BASE_URL=http://54.180.89.13:8080/
 
 # start the app
 CMD yarn prod
