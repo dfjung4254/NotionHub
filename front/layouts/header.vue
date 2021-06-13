@@ -1,10 +1,17 @@
+<style>
+.mainHeader {
+
+}
+</style>
+
 <template>
-  <div>
-    <b-navbar type="light" variant="light">
-      <b-navbar-brand href="#" v-on:click="navigate('/')">NotionHub</b-navbar-brand>
-      <b-navbar-nav>
-        <b-nav-item v-on:click="printConsole('This is contents')">Print</b-nav-item>
-        <b-nav-item v-on:click="navigate('/test')">GoTest</b-nav-item>
+  <div class="mainHeader">
+    <b-navbar type="dark" variant="faded">
+      <b-navbar-nav class="ml-auto">
+        <b-nav-item class="navigateMenu" v-on:click="navigate('/')">HOME</b-nav-item>
+        <b-nav-item class="navigateMenu" v-on:click="navigate('/guestbook')">GUESTBOOK</b-nav-item>
+        <b-nav-item class="navigateMenu" v-on:click="navigate('/test')">TEST</b-nav-item>
+        <b-nav-item class="navigateMenu" v-on:click="navigate('/login')">LOGIN</b-nav-item>
       </b-navbar-nav>
     </b-navbar>
   </div>
@@ -14,18 +21,17 @@
 export default {
   name: "notion_header",
   methods: {
-
     navigate(path) {
       this.$router.push(path);
     },
 
 
-    printConsole(contents) {
-      console.log(contents);
-    }
+
   }
 }
 </script>
 <style>
-
+.navigateMenu {
+  cursor: default;
+}
 </style>
