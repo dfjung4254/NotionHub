@@ -6,5 +6,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('guestbook/', include('guestbook.urls')),
     path('guestbook', include('guestbook.urls')),
+    path('self-introduce/', include('selfIntroduce.urls')),
     path('self-introduce', include('selfIntroduce.urls'))
 ]
