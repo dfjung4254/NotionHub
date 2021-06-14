@@ -1,14 +1,13 @@
 import json
 from django.views import View
 from django.http import HttpResponse, JsonResponse
-from django.core import serializers
+from django.forms.models import model_to_dict
 from .models import selfIntroduce
 
 class index(View):
-    def get(self, request):
-        userId = request.headers['userId']
-        data = serializers.serialize('json',selfIntroduce.objects.filter(userId=userId))
-        return HttpResponse(data)
+    def get(self, request, userId):
+        data = selfIntroduce.objects.get(pk=userId)
+        return JsonResponse(model_to_dict(data))
 
     def post(self, request):
         if request.content_type == 'application/json':
